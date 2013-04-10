@@ -5867,6 +5867,8 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus {
 
 form {
   margin: 0; }
+  form .actions {
+    margin-left: 0; }
 
 @media (max-width: 767px) {
   .container {

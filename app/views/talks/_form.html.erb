@@ -1,6 +1,6 @@
 <%= form_for(@talk) do |f| %>
   <% if @talk.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-error span12">
       <h2><%= pluralize(@talk.errors.count, "error") %> prohibited this talk from being saved:</h2>
 
       <ul>
@@ -11,15 +11,27 @@
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.text_field :presenter,   :placeholder => "Name"                    %><br />
-    <%= f.text_field :email,       :placeholder => "Email (private!)"        %><br />
-    <%= f.text_field :title,       :placeholder => "Title"                   %><br />
-    <%= f.text_area  :description, :placeholder => "Description", :rows => 3 %><br />
-    <%= f.select :kind, talk_kinds %>
+  <ul class="actions row-fluid">
+    <li class="span12">
+      <%= f.text_field :presenter, :placeholder => "Name", :class => "span12"         %>
+    </li>
 
-    <%= hidden_field_tag :password, "" %>
-
-    <%= f.submit %>
-  </div>
+    <li class="span12">
+      <%= f.text_field :email, :placeholder => "Email (private!)", :class => "span12" %>
+    </li>
+    
+    <li class="span12">
+      <%= f.text_field :title, :placeholder => "Title", :class => "span12" %>
+    </li>
+    
+    <li class="span12">
+      <%= f.text_area  :description, :placeholder => "Description", :rows => 3, :class => "span12" %>
+    </li>
+    
+    <li class="span12">
+      <%= f.select :kind, talk_kinds %>
+      <%= hidden_field_tag :password, "" %>
+      <%= f.submit nil, :class => "btn" %>
+    </li>
+  </ul>
 <% end %>
